@@ -26,17 +26,5 @@ public class DatabaseLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        ArrayList<Book> bunchOfBook = new ArrayList<Book>();
-
-        String[] buzzWords = {"Multi Threading", "Inner Classes", "Collections", "Generics", "Development", "JVM"};
-
-        //Using java 8 features (stream, lambda)
-        IntStream.range(0, 10).forEach(it -> {
-            String buzzWord = buzzWords[it % buzzWords.length];
-            Book book = new Book(buzzWord, "Samuel Chan", "SC Publisher", 2018, true);
-            bunchOfBook.add(book);
-        });
-
-        books.save(bunchOfBook);
     }
 }
