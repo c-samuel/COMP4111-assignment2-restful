@@ -1,5 +1,7 @@
-package comp4111.restful;
+package comp4111.restful.core;
 
+import comp4111.restful.topic.TopicRepository;
+import comp4111.restful.topic.Topic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
