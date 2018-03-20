@@ -1,8 +1,10 @@
 package comp4111.restful.book;
 
 import comp4111.restful.core.BaseEntity;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by SC on 20/3/2018.
@@ -14,6 +16,7 @@ public class Book extends BaseEntity {
     private String author;
     private String publisher;
     private Integer year;
+
     private Boolean available;
 
     public Book(String title, String author, String publisher, Integer year, Boolean available) {
