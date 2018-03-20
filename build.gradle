@@ -4,7 +4,7 @@ version '1.0-SNAPSHOT'
 buildscript {
 
     ext {
-        spring_plugin_version = '1.5.2.RELEASE'
+        spring_plugin_version = '2.0.0.RELEASE'
     }
 
     repositories {

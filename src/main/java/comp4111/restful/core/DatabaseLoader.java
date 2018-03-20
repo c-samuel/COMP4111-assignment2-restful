@@ -1,7 +1,7 @@
 package comp4111.restful.core;
 
-import comp4111.restful.topic.TopicRepository;
-import comp4111.restful.topic.Topic;
+import comp4111.restful.book.Book;
+import comp4111.restful.book.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -16,26 +16,27 @@ import java.util.stream.IntStream;
 @Component
 public class DatabaseLoader implements ApplicationRunner {
 
-    private TopicRepository topics;
+    private BookRepository books;
+
     @Autowired
-    public DatabaseLoader(TopicRepository topics) {
-        this.topics = topics;
+    public DatabaseLoader(BookRepository books) {
+        this.books = books;
     }
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        ArrayList<Topic> bunchOfTopic = new ArrayList<Topic>();
+        ArrayList<Book> bunchOfBook = new ArrayList<Book>();
 
-        String[] buzzWords = {"Multi Threading", "Inner Classes",  "Collections", "Generics", "Development", "JVM"};
+        String[] buzzWords = {"Multi Threading", "Inner Classes", "Collections", "Generics", "Development", "JVM"};
 
         //Using java 8 features (stream, lambda)
-        IntStream.range(0,10).forEach(it -> {
+        IntStream.range(0, 10).forEach(it -> {
             String buzzWord = buzzWords[it % buzzWords.length];
-            Topic topic = new Topic(buzzWord, (it % buzzWords.length));
-            bunchOfTopic.add(topic);
+            Book book = new Book(buzzWord, "Samuel Chan", "SC Publisher", 2018, true);
+            bunchOfBook.add(book);
         });
 
-        topics.save(bunchOfTopic);
+        books.save(bunchOfBook);
     }
 }

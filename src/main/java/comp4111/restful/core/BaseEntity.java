@@ -16,13 +16,13 @@ public class BaseEntity {
     @Id
     @JsonIgnore
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private final Long id;
+    private final Integer id;
 
     protected BaseEntity() {
         this.id = null;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 }
