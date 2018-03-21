@@ -1,16 +1,23 @@
 package comp4111.restful.book;
 
-import comp4111.restful.core.BaseEntity;
-import org.hibernate.validator.constraints.NotBlank;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 /**
  * Created by SC on 20/3/2018.
  */
 @Entity
-public class Book extends BaseEntity {
+public class Book {
+
+    @Id
+    @JsonIgnore
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String title;
     private String author;
@@ -29,6 +36,14 @@ public class Book extends BaseEntity {
 
     protected Book() {
         super();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
