@@ -3,12 +3,20 @@ package comp4111.restful.book;
 /**
  * Created by SC on 20/3/2018.
  */
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
 
-public interface BookRepository extends CrudRepository<Book, Long>{
+public interface BookRepository extends JpaRepository<Book, Long> {
 
     // Select a from Book where a.topicname = :topicname
-    Collection<Book> findByTitle(String bookName);
+    List<Book> findByTitle(String bookName);
+    List<Book> findByTitleAndAuthorAndPublisherAndYear(String title, String author, String publisher, Integer year);
+
+    Collection<Book> findByAuthor(String author);
+    Collection<Book> findByPublisher(String Publisher);
+    Collection<Book> findByYear(Integer year);
 }
