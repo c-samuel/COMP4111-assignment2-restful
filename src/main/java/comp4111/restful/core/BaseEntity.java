@@ -15,7 +15,7 @@ public class BaseEntity {
 
     @Id
     @JsonIgnore
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private final Long id;
 
     protected BaseEntity() {
